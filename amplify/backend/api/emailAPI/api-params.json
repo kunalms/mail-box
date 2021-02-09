@@ -1,0 +1,35 @@
+{
+    "paths": [
+        {
+            "name": "/emails",
+            "lambdaFunction": "mailBoxEmailsController",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/emails"
+        }
+    ],
+    "resourceName": "emailAPI",
+    "apiName": "emailAPI",
+    "functionArns": [
+        {
+            "lambdaFunction": "mailBoxEmailsController"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-mailbox-dev-35406-authRole",
+        "unAuthRoleName": "amplify-mailbox-dev-35406-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "mailBoxEmailsController",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}
