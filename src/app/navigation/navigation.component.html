@@ -1,0 +1,65 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav"
+      [attr.role]="'navigation'"
+      [mode]="'side'">
+    <mat-card class="user-card mat-elevation-z0">
+      <mat-card-header fxLayoutAlign="center center">
+        <div mat-card-avatar class="user-image"></div>
+        <mat-card-subtitle>{{userData?.email}}</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+    <mat-divider></mat-divider>
+    <mat-nav-list>
+      <a mat-list-item href="#">DashBoard</a>
+      <mat-divider></mat-divider>
+      <a mat-list-item href="#">Layouts</a>
+      <mat-divider></mat-divider>
+      <a mat-list-item href="#">Graphs</a>
+      <mat-divider></mat-divider>
+      <div mat-subheader class="sub-header">Mailbox</div>
+      <a mat-list-item routerLink="/email" routerLinkActive="active">Inbox</a>
+      <a mat-list-item href="#">Email View</a>
+      <a mat-list-item href="#">Compose email</a>
+      <a mat-list-item href="#">Email templates</a>
+      <mat-divider></mat-divider>
+      <a mat-list-item href="#">Metrics</a>
+      <mat-divider></mat-divider>
+      <a mat-list-item href="#">Widgets</a>
+      <mat-divider></mat-divider>
+      <a mat-list-item href="#">Forms</a>
+      <mat-divider></mat-divider>
+      <a mat-list-item href="#">App Views</a>
+      <mat-divider></mat-divider>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
+      <div>
+        <button type="button"
+                aria-label="Toggle sidenav"
+                mat-icon-button
+                (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <span>Mail box</span>
+      </div>
+      <div fxFlex="10" fxLayoutAlign="space-between center">
+        <button mat-icon-button>
+          <mat-icon matBadge="16" matBadgeColor="accent">email</mat-icon>
+        </button>
+
+        <button mat-icon-button>
+          <mat-icon matBadge="8" matBadgeColor="accent">notifications</mat-icon>
+        </button>
+
+        <button type="button"
+                aria-label="Toggle sidenav"
+                mat-button
+                (click)="logOut()">
+          <mat-icon aria-label="Side nav toggle icon">logout</mat-icon> Logout
+        </button>
+      </div>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
