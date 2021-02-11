@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>{{email.subject || 'Create Email'}}</h1>
+<div fxLayout="column" mat-dialog-content>
+  <mat-form-field appearance="outline">
+    <mat-label>Subject:</mat-label>
+    <input [(ngModel)]="email.subject" matInput>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>From:</mat-label>
+    <input [(ngModel)]="email.fromAddress" [disabled]="true" matInput>
+  </mat-form-field>
+  <div fxLayout="row" fxLayoutGap="4%">
+    <mat-form-field appearance="outline" fxFlex="48%">
+      <mat-label>To:</mat-label>
+      <input [(ngModel)]="email.toAddress" matInput>
+    </mat-form-field>
+    <mat-form-field appearance="outline" fxFlex="48%">
+      <mat-label>CC:</mat-label>
+      <input [(ngModel)]="email.cc" matInput>
+    </mat-form-field>
+  </div>
+  <mat-form-field appearance="outline">
+    <mat-label>Body:</mat-label>
+    <textarea [(ngModel)]="email.body" [cdkTextareaAutosize]="true" cdkAutosizeMinRows="12" matInput></textarea>
+  </mat-form-field>
+</div>
+<div align="end" mat-dialog-actions>
+  <button color="warn" mat-button mat-dialog-close>Discard
+    <mat-icon>delete</mat-icon>
+  </button>
+  <button [mat-dialog-close]="email" cdkFocusInitial color="primary" mat-raised-button>Send
+    <mat-icon>send</mat-icon>
+  </button>
+</div>

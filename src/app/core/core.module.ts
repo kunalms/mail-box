@@ -1,15 +1,20 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {AmplifyUIAngularModule} from '@aws-amplify/ui-angular';
+import {LoaderComponent} from './loader/loader.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
-  declarations: [],
+  declarations: [LoaderComponent],
   imports: [
     CommonModule,
-    AmplifyUIAngularModule
+    AmplifyUIAngularModule,
+    MatProgressBarModule
   ],
   exports: [
-    AmplifyUIAngularModule
+    AmplifyUIAngularModule,
+    MatProgressBarModule,
+    LoaderComponent
   ]
 })
 export class CoreModule { }
