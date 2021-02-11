@@ -1,1 +1,51 @@
-<p>email works!</p>
+<div fxLayout="row" class="content-container" fxLayoutGap="20px">
+  <div fxLayout="column" fxFlex="calc(20% - 10px)">
+    <button mat-raised-button color="primary" (click)="composeEmail()">Compose Mail</button>
+    <mat-nav-list>
+      <div mat-subheader class="sub-header">Folders</div>
+      <a mat-list-item routerLink="inbox">
+        <mat-icon class="list-item-icon" color="primary">inbox</mat-icon>
+        Inbox
+      </a>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="sent">
+        <mat-icon class="list-item-icon" color="primary">email</mat-icon>
+        Sent Mails
+      </a>
+      <mat-divider></mat-divider>
+      <a mat-list-item href="#">
+        <mat-icon class="list-item-icon" color="primary">priority_high</mat-icon>
+        Important
+      </a>
+      <mat-divider></mat-divider>
+      <a mat-list-item href="#">
+        <mat-icon class="list-item-icon" color="primary">drafts</mat-icon>
+        Drafts
+      </a>
+      <mat-divider></mat-divider>
+      <a mat-list-item href="#">
+        <mat-icon class="list-item-icon" color="primary">delete</mat-icon>
+        Trash
+      </a>
+      <mat-divider></mat-divider>
+    </mat-nav-list>
+    <!-- Categories list-->
+    <mat-nav-list class="categories-list">
+      <div mat-subheader class="sub-header">Categories</div>
+      <a *ngFor="let category of categories" mat-list-item>
+        <span [class]="category.class"></span>{{category.label}}
+      </a>
+    </mat-nav-list>
+
+    <mat-nav-list class="categories-list">
+      <div mat-subheader class="sub-header">Labels</div>
+      <mat-chip-list>
+        <mat-chip *ngFor="let label of labels" color="primary">{{label}}</mat-chip>
+      </mat-chip-list>
+    </mat-nav-list>
+  </div>
+
+  <div fxFlex="calc(80% - 10px)" fxLayout="column">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -15,10 +15,23 @@ export class EmailService {
   constructor() {
   }
 
-  getInboxEmails(email: string): Promise<Email> {
+  getInboxEmails(emailAddress: string): Promise<Email> {
     return API.get(this.apiName, this.path + this.inbox, {
       queryStringParameters: {
-        toAddress: email,
+        toAddress: emailAddress,
+      }
+    });
+  }
+
+  createEmail(email: Email): Promise<Email> {
+    return API.post(this.apiName, this.path, {
+      body: {
+        subject: email.subject,
+        body: email.body,
+        cc: email.cc,
+        toAddress: email.toAddress,
+        fromAddress: email.fromAddress,
+        read: false
       }
     });
   }

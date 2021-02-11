@@ -1,0 +1,56 @@
+@import "../../scss/variables";
+
+.content-container {
+  padding: 16px;
+}
+
+.list-item-icon{
+  margin-right: 8px;
+}
+
+%dot {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.work-dot {
+  @extend %dot;
+  background-color: $background-work;
+}
+
+.document-dot {
+  @extend %dot;
+  background-color: $background-document;
+}
+
+.social-dot {
+  @extend %dot;
+  background-color: $background-social;
+}
+
+.advertising-dot {
+  @extend %dot;
+  background-color: $background-advertising;
+}
+
+.clients-dot {
+  @extend %dot;
+  background-color: $background-clients;
+}
+
+.categories-list {
+  margin-top: 16px;
+  .mat-list-item {
+    height: 30px;
+  }
+}
+
+.sub-header {
+  color: var(--primary-color);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+

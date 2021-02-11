@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {EmailService} from './services/email.service';
+import {CreateEmailDialogService} from '../core/services/create-email-dialog.service';
+import {LoaderService} from '../core/services/loader.service';
 
 @Component({
   selector: 'app-email',
@@ -7,15 +8,50 @@ import {EmailService} from './services/email.service';
   styleUrls: ['./email.component.scss']
 })
 export class EmailComponent implements OnInit {
+  categories = [
+    {
+      label: 'Work',
+      class: 'work-dot',
+      badgeCount: 10
+    },
+    {
+      label: 'Document',
+      class: 'document-dot',
+      badgeCount: 10
+    },
+    {
+      label: 'Social',
+      class: 'social-dot'
+    },
+    {
+      label: 'Advertising',
+      class: 'advertising-dot'
+    },
+    {
+      label: 'Clients',
+      class: 'clients-dot'
+    }
+  ];
 
-  constructor(private emailService: EmailService) { }
+  labels = ['Family',
+    'Work', 'Home', 'Children', 'Holiday',
+    'Music', 'Photography', 'Film'
+  ];
+
+  constructor(private createEmailDialog: CreateEmailDialogService) {
+  }
 
   ngOnInit(): void {
-    this.emailService.getInboxEmails('to2@gmail.com').then((data) => {
-      console.log(data);
-    }, (err) => {
-      console.log(err);
-    });
+    // this.emailService.getInboxEmails('to2@gmail.com').then((data) => {
+    //   console.log(data);
+    // }, (err) => {
+    //   console.log(err);
+    // });
+  }
+
+
+  composeEmail(): void {
+    this.createEmailDialog.showCreateEmailDialog();
   }
 
 }

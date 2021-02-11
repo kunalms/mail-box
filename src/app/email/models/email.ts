@@ -1,8 +1,10 @@
 export type Email = {
-  id: string,
-  subject: string,
   body: string,
-  toAddress: string,
+  cc: string,
+  createAt?: string,
   fromAddress: string,
-  createAt: string
+  id?: string,
+  read?: boolean
+  subject: string,
+  toAddress: string,
 };

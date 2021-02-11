@@ -1,15 +1,21 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { EmailRoutingModule } from './email-routing.module';
-import { EmailComponent } from './email.component';
+import {EmailRoutingModule} from './email-routing.module';
+import {EmailComponent} from './email.component';
+import {SharedModule} from '../shared/shared.module';
+import {InboxComponent} from './inbox/inbox.component';
+import {SentComponent} from './sent/sent.component';
+import {CreateEmailDialogComponent} from './create-email-dialog/create-email-dialog.component';
 
 
 @NgModule({
-  declarations: [EmailComponent],
+  declarations: [EmailComponent, InboxComponent, SentComponent, CreateEmailDialogComponent],
   imports: [
     CommonModule,
-    EmailRoutingModule
+    EmailRoutingModule,
+    SharedModule
   ]
 })
-export class EmailModule { }
+export class EmailModule {
+}
